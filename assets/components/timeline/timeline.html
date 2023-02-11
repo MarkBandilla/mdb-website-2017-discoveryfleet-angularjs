@@ -1,0 +1,59 @@
+<div>
+	<style>
+      .timeline, .timeline li { padding-left: 10px; }
+      .timeline { border-left: 2px solid #e3e3e3; }
+      .timeline li { 
+        position: relative;
+        padding: 10px;
+        margin: 15px; border: 1px solid #e3e3e3; 
+        border-radius: 5px;
+      }
+      .timeline li:before {
+        border-right: 12px solid #ddd;
+        border-style: solid;
+        border-width: 12px;
+        color: rgba(0,0,0,0);
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -24px;
+        top: 9px;
+        width: 0;
+      }
+      .timeline li:after {
+        border-right: 10px solid #fff;
+        border-style: solid;
+        border-width: 10px;
+        color: rgba(0,0,0,0);
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -20px;
+        top: 10px;
+        width: 0;
+      }
+      .timeline li .icon {
+        position: absolute;
+        padding: 2px;
+        background: white;
+        left: -35px;
+      }
+      .timeline li hr { margin: 10px 0; }
+    </style>
+
+    <ul class="list-unstyled timeline">
+        <li ng-repeat="i in items">
+          <span class="icon" ng-if="i.type === 'caption'">
+            <i class="fa fa-calendar"></i>
+          </span>
+          <span class="icon" ng-if="i.type != 'caption'">
+            <i class="fa fa-comment"></i>
+          </span>
+          <b>{{i.title}}</b>
+          <hr ng-if="i.type != 'caption'" />
+          <img ng-if="i.type != 'caption'" src="{{i.image}}" width="100%" />
+        </li>
+    </ul>
+</div>
